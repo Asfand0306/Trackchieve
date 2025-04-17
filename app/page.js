@@ -1,19 +1,30 @@
-export default function Page() {
+import React from 'react';
+
+const Page = () => {
   return (
-    
-    <div className="flex flex-col items-center justify-center h-screen p-7 bg-#131214">
-      <h1 className="text-4xl font-bold p-10 (">Welcome to Trackchieve</h1>
-      <h2 className="text-2xl font-bold">Sign In</h2>
-      <div className="flex gap-4 mt-4">
-        <button className="px-4 py-2 text-lg font-medium bg-blue-500 text-white rounded hover:bg-blue-600">
-          
-          Sign in with Steam
+    <div className="min-h-screen flex flex-col justify-center items-center text-white">
+      <h1 className="text-5xl font-extrabold mb-4">Trackchieve</h1>
+      <h2 className="text-2xl font-semibold mb-2">
+         Track your Steam Achievements
+      </h2>
+      <p className="text-center text-gray-300 max-w-md mb-8">
+        Unlock your gaming accomplishments: View, track, and manage your Steam achievements with ease.
+      </p>
+
+      <div className="bg-primary-dark p-6 rounded-2xl border border-purple-700 shadow-lg">
+        <h3 className="text-lg font-semibold mb-4 text-center">Sign in</h3>
+        
+        <button className="flex items-center justify-center w-full mb-4 bg-purple-700 hover:bg-purple-800 text-white font-medium py-2 rounded-lg transition">
+          <img src="./Steam_icon.png" alt="Steam" className="h-5 w-5 mr-2" />
+          Steam Sign in
         </button>
-        <button className="px-4 py-2 text-lg font-medium bg-gray-500 text-white rounded hover:bg-gray-600">
-          Guest Sign In
+        
+        <button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 rounded-lg transition">
+          Guest Login
         </button>
       </div>
     </div>
   );
-}
-// This is a Next.js page component that renders a welcome message.
+};
+
+export default Page;

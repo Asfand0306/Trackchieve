@@ -12,6 +12,13 @@
   }
 }
 
+@theme {
+  --primary: #30129B;
+  --primary-dark: #0E0A1D;
+  --secondary: #0E0A1D;
+}
+
+
 html, body {
   height: 100%;
   margin: 0;
