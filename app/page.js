@@ -1,10 +1,8 @@
+'use client'; // This is a client component
 import React from 'react';
+
+
 const Page = () => {
-
-
-
-
-
   return (
     <div className="min-h-screen flex flex-col justify-center items-center text-white">
       <h1 className="text-7xl font-extrabold  mb-4">Trackchieve</h1>
@@ -23,7 +21,9 @@ const Page = () => {
           Steam Sign in
         </button>
         
-        <button className="flex items-center justify-center w-full border border-primary hover:bg-purple-700 text-white font-medium py-2 rounded-lg transition">
+        <button
+          className="flex items-center justify-center w-full border border-primary hover:bg-purple-700 text-white font-medium py-2 rounded-lg transition"
+        >
           Guest Login
         </button>
       </div>
