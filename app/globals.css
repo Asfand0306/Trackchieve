@@ -17,10 +17,11 @@
   --color-primary: #5C3DCD; 
   --color-primary-dark: #1E104E; 
   
-  --color-secondary: #5C3DCD; 
+  --color-secondary: #30129B; 
   --color-secondary-dark: #2E1F67; 
  
-  --color-background: #120C24; 
+  --color-background: #120C24;
+  --color-background-light: #1E1E1E;
 }
 
 html, body {

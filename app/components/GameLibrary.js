@@ -23,8 +23,7 @@ import React from 'react'
     ];
 
     return (
-      <div className="border border-purple-500 rounded-lg p-4">
-        <h2 className="text-white text-lg font-semibold mb-4">Game Library</h2>
+      <div className=" border-primary border-t-4  rounded-lg p-4 bg-background-light">
         <div className="grid grid-cols-1 gap-4">
           {gameList.map((game, index) => (
             <div key={index} className="flex items-center">
