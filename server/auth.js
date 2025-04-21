@@ -8,22 +8,10 @@ router.get(
   "/steam",
   passport.authenticate("steam", {
     failureRedirect: "/",
-    failureFlash: true, // Optional: for flash messages
   })
 );
 
-router.get(
-  "/steam/return",
-  passport.authenticate("steam", {
-    failureRedirect: "/",
-    session: true, // Keep session true
-  }),
-  (req, res) => {
-    // Successful authentication, redirect to the React app
-    res.redirect("http://localhost:3000/dashboard");
-  }
-);
-
+// Fixed: Removed duplicate route and improved error handling
 router.get("/steam/return", (req, res, next) => {
   passport.authenticate(
     "steam",
@@ -34,16 +22,16 @@ router.get("/steam/return", (req, res, next) => {
     (err, user, info) => {
       if (err) {
         console.error("Authentication error:", err);
-        return res.redirect("/");
+        return res.redirect("http://localhost:3000/?auth=failed");
       }
       if (!user) {
         console.error("No user returned:", info);
-        return res.redirect("/");
+        return res.redirect("http://localhost:3000/?auth=nouser");
       }
       req.logIn(user, (err) => {
         if (err) {
           console.error("Login error:", err);
-          return res.redirect("/");
+          return res.redirect("http://localhost:3000/?auth=loginfailed");
         }
         return res.redirect("http://localhost:3000/dashboard");
       });
@@ -51,6 +39,7 @@ router.get("/steam/return", (req, res, next) => {
   )(req, res, next);
 });
 
+// User status check
 router.get("/user", (req, res) => {
   if (req.isAuthenticated()) {
     res.json({
@@ -63,4 +52,16 @@ router.get("/user", (req, res) => {
     });
   }
 });
+
+// Add logout route
+router.get("/logout", (req, res) => {
+  req.logout(function (err) {
+    if (err) {
+      console.error("Logout error:", err);
+      return res.status(500).json({ error: "Logout failed" });
+    }
+    res.json({ success: true });
+  });
+});
+
 module.exports = router;
