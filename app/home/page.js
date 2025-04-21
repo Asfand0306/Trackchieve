@@ -5,12 +5,16 @@ import { useAuth } from "../context/AuthContext";
 import { useRouter } from 'next/navigation';
 
 const HomePage = () => {
-  const { user, logout } = useAuth();
+  const { user, loading, logout } = useAuth();
   const router = useRouter();
 
   const handleLogout = () => {
     logout();
   };
+
+  if (loading) {
+    return <div className="min-h-screen p-6 text-white">Loading...</div>;
+  }
 
   if (!user) {
     router.push('/');
